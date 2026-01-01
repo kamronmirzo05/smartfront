@@ -1,6 +1,6 @@
 import { Organization, CallRequest, MoistureSensor, WasteBin, Truck, Facility, AirSensor, SOSColumn, ConstructionSite, LightPole, Bus, EcoViolation, IoTDevice, Room, Boiler } from '../types';
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api'; // Backend API Server
+const API_BASE_URL = 'https://smartcityapi.aiproduct.uz/api'; // Backend API Server
 
 // Map backend IoT device (snake_case) to frontend IoTDevice (camelCase)
 const mapIoTDevice = (d: any): IoTDevice => ({

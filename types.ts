@@ -51,6 +51,7 @@ export interface WasteBin {
   qrCodeUrl?: string;
   image?: string;
   organizationId?: string;
+  trend?: { timestamp: string; fillLevel: number; isFull: boolean; source: string }[];
 }
 
 export type TozaHududType = '1-sonli Toza Hudud' | '2-sonli Toza Hudud';

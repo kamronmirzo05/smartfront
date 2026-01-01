@@ -170,7 +170,7 @@ export const generateWasteBins = (count: number, center: Coordinate, cityName: s
       fillLevel: fillLevel,
       fillRate: Math.floor(Math.random() * 10) + 1,
       lastAnalysis: 'Hozirgina',
-      // No default image - only images from camera or bot uploads
+      imageUrl: '', // No default image - only images from camera or bot uploads
       isFull: fillLevel > 80,
       deviceHealth: generateDeviceHealth()
     };

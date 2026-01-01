@@ -610,7 +610,7 @@ const WasteManagement: React.FC<WasteManagementProps> = ({
                                                {/* Display uploaded image if available, otherwise use imageUrl */}
                                                {selectedEntity.data.image ? (
                                                    <img 
-                                                       src={`${selectedEntity.data.image.startsWith('http') ? '' : 'http://127.0.0.1:8000'}${selectedEntity.data.image}`} 
+                                                       src={`${selectedEntity.data.image.startsWith('http') ? '' : 'https://smartcityapi.aiproduct.uz'}${selectedEntity.data.image}`} 
                                                        className="absolute inset-0 w-full h-full object-cover opacity-70" 
                                                        style={{ zIndex: 1 }}
                                                        alt="Waste bin uploaded image" 

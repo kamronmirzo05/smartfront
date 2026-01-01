@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 MONITOR_BOT_TOKEN = "8319168817:AAGuSpx5P0hSaGJW521GCExDyjblMnoXBo0"
 
 # API base URL
-API_BASE_URL = "http://127.0.0.1:8000/api"
+API_BASE_URL = "https://smartcityapi.aiproduct.uz/api"
 # Optional: limit processing to a specific Telegram group ID
 # Set this to your group ID (e.g., -1001234567890) or None to accept from any chat
 MONITORED_CHAT_ID = None  # Replace with your group ID, for example: -1001234567890

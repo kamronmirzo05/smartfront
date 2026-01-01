@@ -32,11 +32,14 @@ const UtilityMonitor: React.FC<UtilityMonitorProps> = ({ type, nodes, onUpdateNo
 
   // Load tickets to correlate with nodes (Hybrid Monitoring Logic)
   useEffect(() => {
-      const allTickets = DB.getTickets();
-      // Filter tickets relevant to this utility type
-      // RequestCategory now includes 'ELECTRICITY' | 'WATER' | 'GAS'
-      const relevantCat = type === 'ELECTRICITY' ? 'ELECTRICITY' : type === 'WATER' ? 'WATER' : 'GAS';
-      setTickets(allTickets.filter(t => t.category === relevantCat && t.status !== 'RESOLVED'));
+      const loadTickets = async () => {
+          const allTickets = await DB.getTickets();
+          // Filter tickets relevant to this utility type
+          // RequestCategory now includes 'ELECTRICITY' | 'WATER' | 'GAS'
+          const relevantCat = type === 'ELECTRICITY' ? 'ELECTRICITY' : type === 'WATER' ? 'WATER' : 'GAS';
+          setTickets(allTickets.filter(t => t.category === relevantCat && t.status !== 'RESOLVED'));
+      };
+      loadTickets();
   }, [type]);
 
   // Update nodes based on tickets (Simulation of "No API" logic)

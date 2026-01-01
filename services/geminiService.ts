@@ -133,7 +133,7 @@ export class GeminiLiveCall {
         model: 'gemini-2.5-flash-native-audio-preview-09-2025',
         config: { 
           responseModalities: [Modality.AUDIO],
-          systemInstruction: `Siz aqlli dispetcher yordamchisiz. Fuqarolarga ${language === 'uz' ? "O'zbek" : "Rus"} tilida yordam bering.`
+          systemInstruction: { role: 'system', parts: [{ text: `Siz aqlli dispetcher yordamchisiz. Fuqarolarga ${language === 'uz' ? "O'zbek" : "Rus"} tilida yordam bering.` }] }
         },
         callbacks: {
           onopen: () => { 
@@ -170,7 +170,7 @@ export const chatWithCitizen = async (history: any[], message: string, language:
     const chat = ai.chats.create({ 
       model: CHAT_MODEL, 
       config: {
-        systemInstruction: `Siz aqlli shahar yordamchisiz. Fuqarolarga ${language === 'uz' ? "O'zbek" : "Rus"} tilida yordam bering.`
+        systemInstruction: { role: 'system', parts: [{ text: `Siz aqlli shahar yordamchisiz. Fuqarolarga ${language === 'uz' ? "O'zbek" : "Rus"} tilida yordam bering.` }] }
       }
     });
     // sendMessage returns GenerateContentResponse

@@ -126,6 +126,7 @@ const MoistureMap: React.FC<MoistureMapProps> = ({
       onAddTruck({
           id: generateUUID(), // Temporary ID for UI
           driverName: truckDriver,
+          plateNumber: '', // Required field
           tozaHudud: tozaHudud,
           location: pendingLocation,
           status: 'IDLE',
@@ -203,7 +204,9 @@ const MoistureMap: React.FC<MoistureMapProps> = ({
               </div>
               <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-2">
                   <div className="flex justify-between text-[10px] font-bold"><span className="text-slate-400">ID:</span> <span className="text-slate-700">{selectedEntity.data.id}</span></div>
-                  <div className="flex justify-between text-[10px] font-bold"><span className="text-slate-400">Korxona:</span> <span className="text-indigo-600">{selectedEntity.data.tozaHudud}</span></div>
+                  {'tozaHudud' in selectedEntity.data && (
+                      <div className="flex justify-between text-[10px] font-bold"><span className="text-slate-400">Korxona:</span> <span className="text-indigo-600">{(selectedEntity.data as any).tozaHudud}</span></div>
+                  )}
                   {selectedEntity.type === 'BIN' && (
                       <div className="flex justify-between text-[10px] font-bold"><span className="text-slate-400">Manzil:</span> <span className="text-slate-700">{(selectedEntity.data as WasteBin).address}</span></div>
                   )}

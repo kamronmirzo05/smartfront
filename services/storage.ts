@@ -1,4 +1,4 @@
-import { Organization, CallRequest, MoistureSensor, WasteBin, Truck, Facility, AirSensor, SOSColumn, ConstructionSite, LightPole, Bus, EcoViolation, IoTDevice } from '../types';
+import { Organization, CallRequest, MoistureSensor, WasteBin, Truck, Facility, AirSensor, SOSColumn, ConstructionSite, LightPole, Bus, EcoViolation, IoTDevice, Room, Boiler } from '../types';
 import { MOCK_ORGANIZATIONS, generateCallRequests, generateMoistureSensors, generateFacilities, generateWasteBins, generateTrucks, generateAirSensors, generateSOSColumns, MOCK_CONSTRUCTION_SITES, generateLightPoles, MAP_CENTER, generateBuses, generateEcoViolations } from '../constants';
 import { ApiService } from './api';
 
@@ -103,10 +103,10 @@ export const DB = {
             
             // Check if org exists (has an ID that looks like a UUID)
             if (org.id && org.id.length > 10) {
-                const updatedOrg = await ApiService.updateOrganization(org.id, cleanedOrg as Organization);
+                const updatedOrg = await ApiService.updateOrganization(org.id, cleanedOrg as unknown as Organization);
                 return updatedOrg;
             } else {
-                const createdOrg = await ApiService.createOrganization(cleanedOrg as Organization);
+                const createdOrg = await ApiService.createOrganization(cleanedOrg as unknown as Organization);
                 return createdOrg;
             }
         } catch (e) {

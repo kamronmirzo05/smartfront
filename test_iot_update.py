@@ -5,7 +5,7 @@ import requests
 import json
 
 # Configuration
-API_BASE_URL = "http://127.0.0.1:8000/api"
+API_BASE_URL = "https://smartcityapi.aiproduct.uz/api"
 
 def test_iot_device_update():
     """Test the IoT device data update endpoint"""

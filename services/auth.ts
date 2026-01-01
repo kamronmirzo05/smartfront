@@ -48,7 +48,7 @@ interface LoginResponse {
 }
 
 class AuthService {
-  private baseUrl: string = 'http://127.0.0.1:8000/api';
+  private baseUrl: string = 'https://smartcityapi.aiproduct.uz/api';
 
   async login(credentials: LoginCredentials): Promise<LoginResponse> {
     try {

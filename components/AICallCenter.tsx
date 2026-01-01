@@ -32,11 +32,16 @@ const AICallCenter: React.FC = () => {
   // Init Data: Load from DB + Polling
   useEffect(() => {
       // Initial Load
-      setRequests(DB.getTickets());
+      const loadInitialData = async () => {
+          const tickets = await DB.getTickets();
+          setRequests(tickets);
+      };
+      loadInitialData();
 
       // Poll for new tickets every 3 seconds (Simulate realtime)
-      const interval = setInterval(() => {
-          setRequests(DB.getTickets());
+      const interval = setInterval(async () => {
+          const tickets = await DB.getTickets();
+          setRequests(tickets);
       }, 3000);
 
       return () => clearInterval(interval);

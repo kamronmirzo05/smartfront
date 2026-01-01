@@ -3,7 +3,7 @@ import json
 import uuid
 
 # Test the add truck/driver endpoint
-BASE_URL = "http://127.0.0.1:8000/api"
+BASE_URL = "https://smartcityapi.aiproduct.uz/api"
 
 def run_test():
     """

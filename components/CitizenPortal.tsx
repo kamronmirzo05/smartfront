@@ -15,6 +15,16 @@ const CitizenPortal: React.FC<CitizenPortalProps> = ({ onBackToAdmin }) => {
     const [selectedBin, setSelectedBin] = useState<WasteBin | null>(null);
     const [uploadingImage, setUploadingImage] = useState<string | null>(null);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
+    const [bins, setBins] = useState<WasteBin[]>([]);
+    
+    // Load bins on component mount
+    useEffect(() => {
+        const loadBins = async () => {
+            const loadedBins = await DB.getBins();
+            setBins(loadedBins);
+        };
+        loadBins();
+    }, []);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -46,7 +56,11 @@ const CitizenPortal: React.FC<CitizenPortalProps> = ({ onBackToAdmin }) => {
             };
             
             // Update DB immediately
-            DB.saveBins(DB.getBins().map(b => b.id === selectedBin.id ? updatedBin : b));
+            const bins = await DB.getBins();
+            const updatedBins = bins.map(b => b.id === selectedBin.id ? updatedBin : b);
+            for (const bin of updatedBins) {
+                await DB.saveBin(bin);
+            }
             
             setTimeout(() => setMode('SUCCESS'), 2000);
         } catch (e) {
@@ -123,7 +137,7 @@ const CitizenPortal: React.FC<CitizenPortalProps> = ({ onBackToAdmin }) => {
                                 <div className="space-y-3">
                                     <label className="text-[10px] font-black text-slate-400 uppercase">Hududni tanlang</label>
                                     <div className="grid grid-cols-1 gap-2">
-                                        {DB.getBins().map(bin => (
+                                        {bins.map(bin => (
                                             <button 
                                                 key={bin.id} 
                                                 onClick={() => setSelectedBin(bin)}

@@ -48,7 +48,7 @@ interface LoginResponse {
 }
 
 class AuthService {
-  private baseUrl: string = 'https://smartcityapi.aiproduct.uz/api';
+  private baseUrl: string = 'https://deklorantapi.cdcgroup.uz/api';
 
   async login(credentials: LoginCredentials): Promise<LoginResponse> {
     try {

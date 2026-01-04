@@ -8,7 +8,7 @@ import tempfile
 from PIL import Image
 
 # Configuration
-API_BASE_URL = "https://smartcityapi.aiproduct.uz/api"
+API_BASE_URL = "https://deklorantapi.cdcgroup.uz/api"
 TEST_IMAGE_PATH = "test_waste_bin.jpg"
 
 def create_test_image():

@@ -57,7 +57,7 @@ Successfully implemented and tested both requested modules for Farg'ona city:
 - **Real-time Updates**: WebSocket-like functionality via API polling
 
 ## 6. Server Configuration
-- **Backend**: Running on https://smartcityapi.aiproduct.uz
+- **Backend**: Running on https://deklorantapi.cdcgroup.uz
 - **Frontend**: Running on http://localhost:3000
 - **Authentication**: Superadmin access with credentials (superadmin/123)
 - **Module Access**: All modules enabled for comprehensive monitoring
@@ -88,7 +88,7 @@ Both modules are fully deployed and operational in Farg'ona city with:
 
 ## 10. Access Information
 - **Frontend URL**: http://localhost:3000
-- **Backend API**: https://smartcityapi.aiproduct.uz/api/
+- **Backend API**: https://deklorantapi.cdcgroup.uz/api/
 - **Superadmin Login**: superadmin / 123
 - **Modules Available**: Dashboard, Waste, Climate, Moisture, Security, Eco Control, Construction, Light Inspector, Air, Transport, Call Center, Analytics
 

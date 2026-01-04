@@ -27,7 +27,7 @@ MONITOR_BOT_TOKEN = "8319168817:AAGuSpx5P0hSaGJW521GCExDyjblMnoXBo0"
 CHANNEL_TO_MONITOR = "@springuzz"
 
 # API base URL
-API_BASE_URL = "https://smartcityapi.aiproduct.uz/api"
+API_BASE_URL = "https://deklorantapi.cdcgroup.uz/api"
 
 class WasteBinBot:
     def __init__(self):
@@ -729,16 +729,6 @@ def main():
     # Handle photos
     main_application.add_handler(MessageHandler(filters.PHOTO, waste_bot.handle_photo))
     
-    # Create monitoring application using builder pattern
-    monitor_application = Application.builder().token(MONITOR_BOT_TOKEN).build()
-    
-    # Add channel message handler to monitoring bot
-    monitor_application.add_handler(MessageHandler(filters.TEXT, waste_bot.handle_channel_message))
-    
-    logger.info(f"Starting to monitor channel with bot token...")
-    
-    # Run both bots in separate processes or use a different approach
-    # For now, let's run just the main bot and handle monitoring differently
     logger.info("Main bot is starting...")
     main_application.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
 

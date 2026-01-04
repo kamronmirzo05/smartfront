@@ -3,7 +3,7 @@ import json
 import time
 
 # Test script for both modules
-BASE_URL = "https://smartcityapi.aiproduct.uz/api"
+BASE_URL = "https://deklorantapi.cdcgroup.uz/api"
 
 def test_authentication():
     """Test authentication system"""
